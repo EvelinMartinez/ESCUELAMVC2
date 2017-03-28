@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Catalogo de Alumnos";
+    List<EscuelaMVC.Models.Alumno> Datos = ViewBag.Datos;
+}
+
+<div class="container" >
+    <div class="panel panel-default">
+        <div class="panel-heading">Catalogo de Alumnos </div>
+        <div class="panel-body">
+            <table class="table table-condensed col-xs-12">
+                <thead>
+                    <tr>
+                        <th class="col-xs-2 text-center">Matricula</th>
+                        <th class="col-xs-4">Apellido</th>
+                        <th class="col-xs-3">Nombre</th>
+                        <th class="col-xs-2">Grupo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (EscuelaMVC.Models.Alumno item in Datos)
+                    {
+                        <tr>
+                            <td>@item.pkAlumno</td>
+                            <td>@item.sApellido</td>
+                            <td>@item.sNombre</td>
+                            <td>@item.sGrupo</td>
+                            <td>
+                                <a href="~/Home/VerDetalle/@item.pkAlumno">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </a>
+                                &nbsp;
+                                <a href="~/Home/frmActualizar/@item.pkAlumno">
+                                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

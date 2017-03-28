@@ -1,0 +1,41 @@
+﻿
+@{
+    List<EscuelaMVC.Models.Alumno> Datos = ViewBag.Datos;
+    ViewBag.Title = Datos[0].sNombre;
+
+}
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Catalogo de Alumnos </div>
+        <div class="panel-body">
+            <table class="table table-condensed col-xs-12">
+                <thead>
+                    <tr>
+                        <th class="col-xs-2 text-center">Matricula</th>
+                        <th class="col-xs-4">Apellido</th>
+                        <th class="col-xs-3">Nombre</th>
+                        <th class="col-xs-2">Grupo</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (EscuelaMVC2.Models.Alumno item in Datos)
+                    {
+                        <tr>
+                            <td>@item.pkAlumno</td>
+                            <td>@item.sApellido</td>
+                            <td>@item.sNombre</td>
+                            <td>@item.sGrupo</td>
+                            <td>
+                                <img src="@item.sImagen" alt="@item.sNombre"/>
+                                <img src='@Url.Action("getImage")' alt="@item.sApellido"
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
